@@ -3,15 +3,15 @@ const pool = require('./db')
 const app = express()
 const port = 8080
 
-// expose an endpoint "users"
-app.get('/users', async (req, res) => {
+// expose an endpoint "people"
+app.get('/people', async (req, res) => {
     let conn;
     try {
         // establish a connection to MariaDB
         conn = await pool.getConnection();
 
         // create a new query
-        var query = "select * from users";
+        var query = "select * from people";
 
         // execute the query and set the result to a new variable
         var rows = await conn.query(query);
